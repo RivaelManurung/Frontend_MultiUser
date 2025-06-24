@@ -33,7 +33,12 @@ export default function Dashboard() {
   const handleCreateProject = async (e) => {
     e.preventDefault();
     try {
-      const project = await apiRequest("/projects", "POST", { name: newProjectName }, getToken());
+      const project = await apiRequest(
+        "/projects",
+        "POST",
+        { name: newProjectName },
+        getToken()
+      );
       setProjects([...projects, project]);
       setNewProjectName("");
     } catch (error) {
@@ -68,7 +73,9 @@ export default function Dashboard() {
               required
             />
           </div>
-          <Button type="submit" className="mt-6">Create Project</Button>
+          <Button type="submit" className="mt-6">
+            Create Project
+          </Button>
         </div>
       </form>
 
